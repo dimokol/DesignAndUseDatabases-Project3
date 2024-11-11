@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Simple DB App</title>
+        <script>
+            function submitForm(form, method) {
+                var vals = [];
+                
+                for (var n=0; n < form.elements.length; n++) {
+                    if(form.elements[n].className === 'toSubmit') {
+                        vals.push(form.elements[n].name + "=" + form.elements[n].value);
+                    }
+                }
+                
+                window.parent.document.getElementById('resultsFrame').contentWindow.location = method + "?" + vals.join("&");
+            }
+        </script>
+    </head>
+    
+    <body>
+        <table width="100%" height="100%"  border='2'>
+            <tr>
+                <td>
+                    <h2>findAirlinebyAge</h2>
+                    <form>
+                        Age X: <input type="text" class="toSubmit" name="x" /><br /> 
+						Age Y: <input type="text" class="toSubmit" name="y" /><br /> 
+                        <input type="button" name="button" value="Search" onClick="submitForm(this.form, 'findAirlinebyAge')" />
+                    </form>
+                </td>
+
+                <td>
+                    <h2>findLargestAirlines</h2>
+                    <form>
+                        N: <input type="text" class="toSubmit" name="N" /><br /> 
+                        <input type="button" name="button" value="Search" onClick="submitForm(this.form, 'findLargestAirlines')" />
+                    </form>
+                </td>
+            </tr>
+            <tr>
+			    <td>
+                    <h2>findAirportVisitors</h2>
+                    <form>
+                        Airline X: <input type="text" class="toSubmit" name="x" /><br /> 
+						Date A: <input type="text" class="toSubmit" name="a" /><br />
+						Date B: <input type="text" class="toSubmit" name="b" /><br />						 
+                        <input type="button" name="button" value="Search" onClick="submitForm(this.form, 'findAirportVisitors')" />
+                    </form>
+                </td>
+                <td>
+                    <h2>findFlights</h2>
+                    <form>
+                        Date X: <input type="text" class="toSubmit" name="x" /><br /> 
+						Destination A: <input type="text" class="toSubmit" name="a" /><br />
+						Destination B: <input type="text" class="toSubmit" name="b" /><br />						
+                        <input type="button" name="button" value="Search" onClick="submitForm(this.form, 'findFlights')" />
+                    </form>
+                </td>
+            </tr>
+			<tr>
+			    <td>
+                    <h2>insertNewRoute</h2>
+                    <form>
+                        Airline X : <input type="text" class="toSubmit" name="x" /><br />
+						Departs from Y : <input type="text" class="toSubmit" name="y" /><br /> 
+                        <input type="button" name="button" value="Search" onClick="submitForm(this.form, 'insertNewRoute')" />
+                    </form>
+                </td>
+                 
+            </tr> 
+        </table>
+    </body>
+</html>
